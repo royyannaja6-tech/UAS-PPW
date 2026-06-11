@@ -6,6 +6,8 @@ const observer = new IntersectionObserver((entries) => {
 
         if (entry.isIntersecting) {
             entry.target.classList.add("active");
+        } else {
+            entry.target.classList.remove("active");
         }
 
     });
@@ -25,29 +27,48 @@ const navbar = document.querySelector(".navbar-custom");
 window.addEventListener("scroll", () => {
 
     const scrollTop = document.documentElement.scrollTop;
+
     const scrollHeight =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
 
     const progress = (scrollTop / scrollHeight) * 100;
 
-    progressBar.style.width = progress + "%";
+    if(progressBar){
+        progressBar.style.width = progress + "%";
+    }
 
     if(scrollTop > 300){
-        backToTop.classList.add("show");
-        navbar.classList.add("scrolled");
+
+        if(backToTop){
+            backToTop.classList.add("show");
+        }
+
+        if(navbar){
+            navbar.classList.add("scrolled");
+        }
+
     }else{
-        backToTop.classList.remove("show");
-        navbar.classList.remove("scrolled");
+
+        if(backToTop){
+            backToTop.classList.remove("show");
+        }
+
+        if(navbar){
+            navbar.classList.remove("scrolled");
+        }
+
     }
 
 });
 
-backToTop.addEventListener("click", () => {
+if(backToTop){
+    backToTop.addEventListener("click", () => {
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
     });
-
-});
+}
