@@ -1,20 +1,28 @@
 const express = require('express');
+const path = require('path');
 
 const app = express();
 
+// View Engine EJS
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.set('views', path.join(__dirname, 'views'));
 
+// Static Files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
 app.get('/', (req, res) => {
     res.render('index');
 });
 
-// Export app untuk Vercel
+// Export untuk Vercel
 module.exports = app;
 
 // Jalankan lokal
 if (process.env.NODE_ENV !== 'production') {
-    app.listen(3000, () => {
-        console.log('Server berjalan di http://localhost:3000');
+    const PORT = 3000;
+
+    app.listen(PORT, () => {
+        console.log(`Server berjalan di http://localhost:${PORT}`);
     });
 }
