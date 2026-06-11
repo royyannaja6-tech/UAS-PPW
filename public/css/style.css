@@ -35,7 +35,7 @@ body{
     50%{ transform:scale(1.18); }
 }
 
-/* PROGRESS BAR */
+/* PROGRESS */
 
 #progress-bar{
     position:fixed;
@@ -45,7 +45,6 @@ body{
     height:4px;
     background:linear-gradient(90deg,#3b82f6,#8b5cf6,#06b6d4);
     z-index:99999;
-    box-shadow:0 0 15px rgba(59,130,246,.8);
 }
 
 /* NAVBAR */
@@ -69,7 +68,6 @@ body{
 .navbar-custom.scrolled{
     padding:12px 80px;
     background:rgba(2,6,23,.92);
-    backdrop-filter:blur(20px);
     box-shadow:0 8px 25px rgba(0,0,0,.35);
 }
 
@@ -80,6 +78,12 @@ body{
 
 .logo span{
     color:#3b82f6;
+    animation:logoBlink 1.5s infinite;
+}
+
+@keyframes logoBlink{
+    0%,100%{ opacity:1; }
+    50%{ opacity:.35; }
 }
 
 .menu{
@@ -139,6 +143,18 @@ body{
 
 .hero-left span{
     color:#3b82f6;
+    animation:textGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes textGlow{
+    0%,100%{
+        text-shadow:0 0 8px rgba(59,130,246,.4);
+    }
+    50%{
+        text-shadow:
+        0 0 18px rgba(59,130,246,.9),
+        0 0 35px rgba(124,58,237,.7);
+    }
 }
 
 .hero-left p{
@@ -160,12 +176,22 @@ body{
     font-weight:700;
     background:linear-gradient(135deg,#2563eb,#7c3aed);
     transition:.3s;
-    box-shadow:0 10px 30px rgba(37,99,235,.35);
+    animation:pulseButton 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseButton{
+    0%,100%{
+        box-shadow:0 10px 30px rgba(37,99,235,.35);
+    }
+    50%{
+        box-shadow:
+        0 0 25px rgba(37,99,235,.8),
+        0 0 45px rgba(124,58,237,.5);
+    }
 }
 
 .btn-project:hover{
     transform:translateY(-6px) scale(1.04);
-    box-shadow:0 15px 40px rgba(37,99,235,.55);
 }
 
 /* SOCIAL */
@@ -303,6 +329,21 @@ body{
     border:1px solid rgba(255,255,255,.12);
     backdrop-filter:blur(12px);
     transition:.4s;
+    animation:cardFloat 4s ease-in-out infinite;
+}
+
+.skill-card:nth-child(2),
+.project-card:nth-child(2){ animation-delay:.5s; }
+
+.skill-card:nth-child(3),
+.project-card:nth-child(3){ animation-delay:1s; }
+
+.skill-card:nth-child(4){ animation-delay:1.5s; }
+.skill-card:nth-child(5){ animation-delay:2s; }
+
+@keyframes cardFloat{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
 }
 
 .skill-card::before,
@@ -325,6 +366,7 @@ body{
 
 .skill-card:hover,
 .project-card:hover{
+    animation-play-state:paused;
     transform:perspective(1000px) rotateX(8deg) rotateY(-8deg) translateY(-12px);
     box-shadow:
     0 0 30px rgba(59,130,246,.4),
@@ -357,6 +399,18 @@ body{
     border:1px solid rgba(255,255,255,.12);
     backdrop-filter:blur(12px);
     text-align:center;
+    animation:contactGlow 4s ease-in-out infinite;
+}
+
+@keyframes contactGlow{
+    0%,100%{
+        box-shadow:0 0 15px rgba(59,130,246,.15);
+    }
+    50%{
+        box-shadow:
+        0 0 30px rgba(59,130,246,.35),
+        0 0 50px rgba(124,58,237,.2);
+    }
 }
 
 .contact-box p{
@@ -411,7 +465,6 @@ footer{
 
 #backToTop:hover{
     transform:translateY(-7px) scale(1.08);
-    box-shadow:0 0 30px rgba(124,58,237,.8);
 }
 
 /* LIGHT MODE */
@@ -419,13 +472,6 @@ footer{
 .light-mode{
     background:#f8fafc;
     color:#111827;
-}
-
-.light-mode .aurora{
-    background:
-    radial-gradient(circle at 20% 20%, rgba(59,130,246,.18), transparent 35%),
-    radial-gradient(circle at 80% 40%, rgba(124,58,237,.15), transparent 35%),
-    radial-gradient(circle at 50% 90%, rgba(6,182,212,.12), transparent 35%);
 }
 
 .light-mode .navbar-custom{
@@ -464,6 +510,19 @@ footer{
     color:#334155;
 }
 
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+    transform:translateY(120px) scale(.85);
+    transition:all 1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
 /* ANIMATION */
 
 @keyframes slideLeft{
@@ -488,27 +547,6 @@ footer{
     }
 }
 
-.reveal{
-    opacity:0;
-    transform:translateY(120px) scale(.85);
-    transition:all 1s ease;
-}
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0) scale(1);
-}
-
-.skill-card:nth-child(1){ transition-delay:.1s; }
-.skill-card:nth-child(2){ transition-delay:.2s; }
-.skill-card:nth-child(3){ transition-delay:.3s; }
-.skill-card:nth-child(4){ transition-delay:.4s; }
-.skill-card:nth-child(5){ transition-delay:.5s; }
-
-.project-card:nth-child(1){ transition-delay:.1s; }
-.project-card:nth-child(2){ transition-delay:.2s; }
-.project-card:nth-child(3){ transition-delay:.3s; }
-
 /* SCROLLBAR */
 
 ::-webkit-scrollbar{
@@ -524,11 +562,7 @@ footer{
     border-radius:20px;
 }
 
-::-webkit-scrollbar-thumb:hover{
-    background:#3b82f6;
-}
-
-/* TABLET */
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -536,7 +570,6 @@ footer{
         padding:15px;
         flex-direction:column;
         gap:15px;
-        position:fixed;
     }
 
     .navbar-custom.scrolled{
@@ -573,29 +606,12 @@ footer{
         width:100%;
     }
 
-    .hero-left h4{
-        font-size:18px;
-    }
-
     .hero-left h1{
         font-size:42px;
-        line-height:1.2;
     }
 
     .hero-left p{
         font-size:16px;
-        max-width:100%;
-    }
-
-    .btn-project{
-        width:100%;
-        max-width:250px;
-    }
-
-    .hero-right{
-        width:100%;
-        display:flex;
-        justify-content:center;
     }
 
     .photo-box img{
@@ -608,21 +624,12 @@ footer{
         flex-wrap:wrap;
     }
 
-    .social a{
-        width:50px;
-        height:50px;
-    }
-
     .section{
         padding:70px 20px;
     }
 
     .section h2{
         font-size:32px;
-    }
-
-    .about-text{
-        font-size:16px;
     }
 
     .card-container{
@@ -646,11 +653,6 @@ footer{
         word-break:break-word;
     }
 
-    footer{
-        font-size:14px;
-        padding:20px;
-    }
-
     #backToTop{
         width:50px;
         height:50px;
@@ -659,25 +661,7 @@ footer{
     }
 }
 
-/* SMALL MOBILE */
-
 @media(max-width:480px){
-
-    .navbar-custom{
-        padding:12px;
-    }
-
-    .logo{
-        font-size:24px;
-    }
-
-    .menu{
-        gap:10px;
-    }
-
-    .menu a{
-        font-size:13px;
-    }
 
     .hero{
         padding:170px 15px 45px;
@@ -687,19 +671,9 @@ footer{
         font-size:34px;
     }
 
-    .hero-left p{
-        font-size:15px;
-    }
-
-    .photo-box{
-        padding:10px;
-        border-radius:28px;
-    }
-
     .photo-box img{
         width:220px;
         height:285px;
-        border-radius:20px;
     }
 
     .social a{
@@ -707,17 +681,7 @@ footer{
         height:45px;
     }
 
-    .section{
-        padding:60px 15px;
-    }
-
     .section h2{
         font-size:28px;
-    }
-
-    .skill-card,
-    .project-card{
-        max-width:100%;
-        padding:25px;
     }
 }
