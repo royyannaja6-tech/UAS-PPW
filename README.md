@@ -2,10 +2,10 @@
 
 | No | Nama                 | NIM       | Bagian                                                |
 | -- | -------------------- | --------- | ----------------------------------------------------- |
-| 1  | Muhammad Royyan Naja | 202451034 | Konfigurasi Project, Backend & Deployment             |
-| 2  | (Nama Anggota 2)     | (NIM)     | Halaman Utama Website (Home, About, Skills, Projects) |
-| 3  | (Nama Anggota 3)     | (NIM)     | Frontend, Styling, Responsive Design & Dark Mode      |
-| 4  | (Nama Anggota 4)     | (NIM)     | JavaScript, Animasi, Dokumentasi & Pengujian          |
+| 1  | Irsyad Muhayya       | 202451031 | Konfigurasi Project, Backend & Deployment             |
+| 2  | Muhammad Royyan Naja | 202451034 | Halaman Utama Website (Home, About, Skills, Projects) |
+| 3  | Ega Santiya S        | 202451051 | Frontend, Styling, Responsive Design & Dark Mode      |
+| 4  | M Naufal Syadid M    | 202451077 | JavaScript, Animasi, Dokumentasi & Pengujian          |
 
 ### Anggota 1 — Konfigurasi Project, Backend & Deployment
 
