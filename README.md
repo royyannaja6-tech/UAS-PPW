@@ -2,15 +2,15 @@
 
 | No | Nama                 | NIM       | Bagian                                                |
 | -- | -------------------- | --------- | ----------------------------------------------------- |
-| 1  | Irsyad Muhayya       | 202451031 | Konfigurasi Project, Backend & Deployment             |
-| 2  | Muhammad Royyan Naja | 202451034 | Halaman Utama Website (Home, About, Skills, Projects) |
-| 3  | Ega Santiya S.       | 202451051 | Frontend, Styling, Responsive Design & Dark Mode      |
-| 4  | M Naufal Syadid M.   | 202451077 | JavaScript, Animasi, Dokumentasi & Pengujian          |
+| 1  | Muhammad Royyan Naja | 202451034 | Konfigurasi Project, Backend & Deployment             |
+| 2  | (Nama Anggota 2)     | (NIM)     | Halaman Utama Website (Home, About, Skills, Projects) |
+| 3  | (Nama Anggota 3)     | (NIM)     | Frontend, Styling, Responsive Design & Dark Mode      |
+| 4  | (Nama Anggota 4)     | (NIM)     | JavaScript, Animasi, Dokumentasi & Pengujian          |
 
 ### Anggota 1 — Konfigurasi Project, Backend & Deployment
 
 File yang dikerjakan:
-`app.js`, `package.json`, `vercel.json`
+`app.js`, `package.json`, `vercel.json`, `.gitignore`
 
 ### Anggota 2 — Halaman Utama Website
 
@@ -82,3 +82,14 @@ portfolio-website/
 │
 └── README.md                 # Dokumentasi project
 ```
+
+## Persentase Kontribusi
+
+| Nama                 | Persentase |
+| -------------------- | ---------- |
+| Muhammad Royyan Naja | 25%        |
+| Anggota 2            | 25%        |
+| Anggota 3            | 25%        |
+| Anggota 4            | 25%        |
+
+**Total Kontribusi: 100%**
